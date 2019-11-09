@@ -24,6 +24,8 @@ var (
 
 //----------------------------------------
 
+type ProofInnerNode = proofInnerNode
+
 type proofInnerNode struct {
 	Height  int8   `json:"height"`
 	Size    int64  `json:"size"`
@@ -91,6 +93,8 @@ func (pin proofInnerNode) Hash(childHash []byte) []byte {
 }
 
 //----------------------------------------
+
+type ProofLeafNode = proofLeafNode
 
 type proofLeafNode struct {
 	Key       cmn.HexBytes `json:"key"`

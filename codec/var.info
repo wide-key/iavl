@@ -1,0 +1,109 @@
+======= iavl.RangeProof 'github.com/tendermint/iavl' 'RangeProof' == 
+struct_with_private {
+    LeftPath : ('github.com/tendermint/iavl' 'PathToLeaf') slice {
+        struct {
+            Height : ('' 'int8') int8
+            Size : ('' 'int64') int64
+            Version : ('' 'int64') int64
+            Left : ('' '') ByteSlice
+            Right : ('' '') ByteSlice
+        } //struct
+    } //slice
+    InnerNodes : ('' '') slice {
+        slice {
+            struct {
+                Height : ('' 'int8') int8
+                Size : ('' 'int64') int64
+                Version : ('' 'int64') int64
+                Left : ('' '') ByteSlice
+                Right : ('' '') ByteSlice
+            } //struct
+        } //slice
+    } //slice
+    Leaves : ('' '') slice {
+        struct {
+            Key : ('github.com/tendermint/iavl/common' 'HexBytes') ByteSlice
+            ValueHash : ('github.com/tendermint/iavl/common' 'HexBytes') ByteSlice
+            Version : ('' 'int64') int64
+        } //struct
+    } //slice
+    rootVerified : ('' 'bool') bool
+    rootHash : ('' '') ByteSlice
+    treeEnd : ('' 'bool') bool
+} //struct
+======= iavl.IAVLAbsenceOp 'github.com/tendermint/iavl' 'IAVLAbsenceOp' == 
+struct_with_private {
+    key : ('' '') ByteSlice
+    Proof : ('' '') pointer ('github.com/tendermint/iavl' 'RangeProof') {
+        struct_with_private {
+            LeftPath : ('github.com/tendermint/iavl' 'PathToLeaf') slice {
+                struct {
+                    Height : ('' 'int8') int8
+                    Size : ('' 'int64') int64
+                    Version : ('' 'int64') int64
+                    Left : ('' '') ByteSlice
+                    Right : ('' '') ByteSlice
+                } //struct
+            } //slice
+            InnerNodes : ('' '') slice {
+                slice {
+                    struct {
+                        Height : ('' 'int8') int8
+                        Size : ('' 'int64') int64
+                        Version : ('' 'int64') int64
+                        Left : ('' '') ByteSlice
+                        Right : ('' '') ByteSlice
+                    } //struct
+                } //slice
+            } //slice
+            Leaves : ('' '') slice {
+                struct {
+                    Key : ('github.com/tendermint/iavl/common' 'HexBytes') ByteSlice
+                    ValueHash : ('github.com/tendermint/iavl/common' 'HexBytes') ByteSlice
+                    Version : ('' 'int64') int64
+                } //struct
+            } //slice
+            rootVerified : ('' 'bool') bool
+            rootHash : ('' '') ByteSlice
+            treeEnd : ('' 'bool') bool
+        } //struct
+    } // pointer
+} //struct
+======= iavl.IAVLValueOp 'github.com/tendermint/iavl' 'IAVLValueOp' == 
+struct_with_private {
+    key : ('' '') ByteSlice
+    Proof : ('' '') pointer ('github.com/tendermint/iavl' 'RangeProof') {
+        struct_with_private {
+            LeftPath : ('github.com/tendermint/iavl' 'PathToLeaf') slice {
+                struct {
+                    Height : ('' 'int8') int8
+                    Size : ('' 'int64') int64
+                    Version : ('' 'int64') int64
+                    Left : ('' '') ByteSlice
+                    Right : ('' '') ByteSlice
+                } //struct
+            } //slice
+            InnerNodes : ('' '') slice {
+                slice {
+                    struct {
+                        Height : ('' 'int8') int8
+                        Size : ('' 'int64') int64
+                        Version : ('' 'int64') int64
+                        Left : ('' '') ByteSlice
+                        Right : ('' '') ByteSlice
+                    } //struct
+                } //slice
+            } //slice
+            Leaves : ('' '') slice {
+                struct {
+                    Key : ('github.com/tendermint/iavl/common' 'HexBytes') ByteSlice
+                    ValueHash : ('github.com/tendermint/iavl/common' 'HexBytes') ByteSlice
+                    Version : ('' 'int64') int64
+                } //struct
+            } //slice
+            rootVerified : ('' 'bool') bool
+            rootHash : ('' '') ByteSlice
+            treeEnd : ('' 'bool') bool
+        } //struct
+    } // pointer
+} //struct

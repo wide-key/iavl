@@ -16,7 +16,7 @@ const ProofOpIAVLAbsence = "iavl:a"
 // is good.
 type IAVLAbsenceOp struct {
 	// Encoded in ProofOp.Key.
-	key []byte
+	Key []byte
 
 	// To encode in ProofOp.Data.
 	// Proof is nil for an empty tree.
@@ -28,7 +28,7 @@ var _ merkle.ProofOperator = IAVLAbsenceOp{}
 
 func NewIAVLAbsenceOp(key []byte, proof *RangeProof) IAVLAbsenceOp {
 	return IAVLAbsenceOp{
-		key:   key,
+		Key:   key,
 		Proof: proof,
 	}
 }
@@ -49,7 +49,7 @@ func (op IAVLAbsenceOp) ProofOp() merkle.ProofOp {
 	bz := cdc.MustMarshalBinaryLengthPrefixed(op)
 	return merkle.ProofOp{
 		Type: ProofOpIAVLAbsence,
-		Key:  op.key,
+		Key:  op.Key,
 		Data: bz,
 	}
 }
@@ -76,7 +76,7 @@ func (op IAVLAbsenceOp) Run(args [][]byte) ([][]byte, error) {
 	// XXX What is the encoding for keys?
 	// We should decode the key depending on whether it's a string or hex,
 	// maybe based on quotes and 0x prefix?
-	err = op.Proof.VerifyAbsence([]byte(op.key))
+	err = op.Proof.VerifyAbsence([]byte(op.Key))
 	if err != nil {
 		return nil, errors.Wrap(err, "verifying absence")
 	}
@@ -84,5 +84,5 @@ func (op IAVLAbsenceOp) Run(args [][]byte) ([][]byte, error) {
 }
 
 func (op IAVLAbsenceOp) GetKey() []byte {
-	return op.key
+	return op.Key
 }

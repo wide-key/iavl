@@ -4,12 +4,13 @@ import (
 	amino "github.com/tendermint/go-amino"
 )
 
-var cdc = amino.NewCodec()
+var cdc *amino.Codec
 
 func init() {
 	// NOTE: It's important that there be no conflicts here,
 	// as that would change the canonical representations.
-	RegisterWire(cdc)
+	//cdc = amino.NewCodec()
+	//RegisterWire(cdc)
 }
 
 func RegisterWire(cdc *amino.Codec) {

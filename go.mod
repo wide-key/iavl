@@ -3,6 +3,7 @@ module github.com/tendermint/iavl
 go 1.12
 
 require (
+	github.com/coinexchain/codon v0.0.0-20191012070227-3ee72dde596c
 	github.com/pkg/errors v0.8.1
 	github.com/stretchr/testify v1.4.0
 	github.com/tendermint/go-amino v0.14.1
@@ -10,3 +11,9 @@ require (
 	github.com/tendermint/tm-db v0.2.0
 	golang.org/x/crypto v0.0.0-20190313024323-a1f597ede03a
 )
+
+replace github.com/tendermint/go-amino v0.14.1 => ../wrap-amino
+
+replace github.com/coinexchain/codon v0.0.0-20191012070227-3ee72dde596c => ../../coinexchain/codon
+
+replace github.com/tendermint/tendermint v0.32.7 => ../tendermint

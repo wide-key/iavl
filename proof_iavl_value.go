@@ -17,7 +17,7 @@ const ProofOpIAVLValue = "iavl:v"
 // is good.
 type IAVLValueOp struct {
 	// Encoded in ProofOp.Key.
-	key []byte
+	Key []byte
 
 	// To encode in ProofOp.Data.
 	// Proof is nil for an empty tree.
@@ -29,7 +29,7 @@ var _ merkle.ProofOperator = IAVLValueOp{}
 
 func NewIAVLValueOp(key []byte, proof *RangeProof) IAVLValueOp {
 	return IAVLValueOp{
-		key:   key,
+		Key:   key,
 		Proof: proof,
 	}
 }
@@ -50,7 +50,7 @@ func (op IAVLValueOp) ProofOp() merkle.ProofOp {
 	bz := cdc.MustMarshalBinaryLengthPrefixed(op)
 	return merkle.ProofOp{
 		Type: ProofOpIAVLValue,
-		Key:  op.key,
+		Key:  op.Key,
 		Data: bz,
 	}
 }
@@ -75,7 +75,7 @@ func (op IAVLValueOp) Run(args [][]byte) ([][]byte, error) {
 	// XXX What is the encoding for keys?
 	// We should decode the key depending on whether it's a string or hex,
 	// maybe based on quotes and 0x prefix?
-	err = op.Proof.VerifyItem([]byte(op.key), value)
+	err = op.Proof.VerifyItem([]byte(op.Key), value)
 	if err != nil {
 		return nil, errors.Wrap(err, "verifying value")
 	}
@@ -83,5 +83,5 @@ func (op IAVLValueOp) Run(args [][]byte) ([][]byte, error) {
 }
 
 func (op IAVLValueOp) GetKey() []byte {
-	return op.key
+	return op.Key
 }
